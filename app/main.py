@@ -21,4 +21,4 @@ def main():
         print(f"Nome: {usuario.nome} - Email: `{usuario.email} - semha: {usuario.senha}")
 
 if __name__ == "__main__":
-    main():
+    main()

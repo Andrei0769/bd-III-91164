@@ -9,7 +9,7 @@ db_port = "3306"
 db_name = "meu_banco"
 
 ## ENDEREÇO/CAMINHO PARA CONEXÃO COM BD MySQL
-DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}:{db_host}:{db_port}:{db_name}"
+DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
 
 ## CONECTANDO AO BANCO DE DADOS.
 db = create_engine(DATABASE_URL)
