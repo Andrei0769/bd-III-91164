@@ -8,19 +8,31 @@ class UsuarioService:
     def criar_usuario(self, nome: str, email: str, senha: str):
         try:
             usuario = Usuario(nome=nome, email=email, senha=senha)
-
             novo_usuario = self.repository.pesquisar_usuario_por_email(usuario.email)
     
             if novo_usuario:
-                print("Usuario Já cadastrado!!")
+                print("Usuário já cadastrado!")
                 return
 
             self.repository.salvar_usuario(usuario)
-            print("Usuário cadastrado com sucesso!!")
+            print("Usuário cadastrado com sucesso!")
         except TypeError as erro:
-            print("Erro ao salvar o usuario: {erro}")
+            print(f"Erro ao salvar o usuário: {erro}")
         except Exception as erro:
-            print("Ocorreu um erro inesperado: {erro}")
+            print(f"Ocorreu um erro inesperado: {erro}")
     
     def listar_todos_usuarios(self):
         return self.repository.listar_usuario()
+
+    def pesquisar_usuario_por_email(self, email: str):
+        return self.repository.pesquisar_usuario_por_email(email)
+
+    def atualizar_usuario(self, usuario: Usuario, novo_nome: str, nova_senha: str):
+        usuario.nome = novo_nome
+        usuario.senha = nova_senha
+        self.repository.salvar_usuario(usuario)
+        print("Dados do usuário atualizados com sucesso!")
+
+    def excluir_usuario(self, usuario: Usuario):
+        self.repository.excluir_usuario(usuario)
+        print("Usuário excluído com sucesso!")
