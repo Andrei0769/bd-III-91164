@@ -20,7 +20,7 @@ def main():
     listar_usuarios = service.listar_todos_usuarios()
     for usuario in listar_usuarios:
         print(
-            f"Nome: {usuario.nome} - Email: `{usuario.email} - semha: {usuario.senha}"
+            f"Nome: {usuario.nome} - Email: `{usuario.email} - senha: {usuario.senha}"
         )
 
 
