@@ -2,9 +2,12 @@ from models.usuario_models import Usuario
 from sqlalchemy.orm import Session
 
 class UsuarioRepository:
-    def __init__(self, session: Session):
+    def __init__(self, session):
         self.session = session
-    
+
+    def listar_todos_usuarios(self):
+        return self.session.query(Usuario).all()
+
     def salvar_usuario(self, usuario: Usuario):
         self.session.add(usuario)
         self.session.commit()

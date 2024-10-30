@@ -2,6 +2,7 @@ from services.usuario_service import UsuarioService
 from repositories.usuario_repository import UsuarioRepository
 from config.database import Session
 import os
+
 def main():
     session = Session()
     repository = UsuarioRepository(session)
@@ -62,19 +63,22 @@ def main():
 
         elif opcao == "5":
             # Exibir todos os usuários cadastrados
-            usuarios = service.listar_todos_usuarios()
+            usuarios = service.repository.listar_todos_usuarios()
             if usuarios:
+                print("\n--- Lista de Usuários Cadastrados ---")
                 for usuario in usuarios:
                     print(f"Nome: {usuario.nome}, Email: {usuario.email}")
             else:
                 print("Nenhum usuário cadastrado.")
 
         elif opcao == "0":
-            print("Saindo do programa...")
+            print("Saindo do programa... Obrigado por usar o MEU SISTEMA DE BANCO DE DADOS")
             break
 
         else:
             print("Opção inválida. Tente novamente.")
+
+        input("\nPressione Enter para continuar...")
 
 if __name__ == "__main__":
     main()
