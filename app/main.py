@@ -72,7 +72,7 @@ def main():
                 print("Nenhum usuário cadastrado.")
 
         elif opcao == "0":
-            print("Saindo do programa... Obrigado por usar o MEU SISTEMA DE BANCO DE DADOS")
+            print("Saindo do programa... Obrigado por usar o Sistema SENAI SOLUTION")
             break
 
         else:
